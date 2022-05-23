@@ -5,8 +5,8 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableVersioning({
-    type: VersioningType.HEADER,
-    header: 'X-Request-Version',
+    type: VersioningType.MEDIA_TYPE,
+    key: 'v=',
   });
   await app.listen(3000);
 }

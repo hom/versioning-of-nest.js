@@ -1,7 +1,13 @@
-import { Controller, Get, Version } from '@nestjs/common';
+import { Controller, Get, Version, VERSION_NEUTRAL } from '@nestjs/common';
 
 @Controller('cats')
 export class CatsController {
+  @Version(VERSION_NEUTRAL)
+  @Get()
+  find(): string {
+    return 'This api is route level version of neutral type';
+  }
+
   @Version('1')
   @Get()
   findOfV1(): string {
