@@ -1,4 +1,4 @@
-import { VersioningType } from '@nestjs/common';
+import { VersioningType, VERSION_NEUTRAL } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { Request } from 'express';
@@ -33,6 +33,7 @@ async function bootstrap() {
   app.enableVersioning({
     type: VersioningType.CUSTOM,
     extractor,
+    defaultVersion: VERSION_NEUTRAL,
   });
   await app.listen(3000);
 }
